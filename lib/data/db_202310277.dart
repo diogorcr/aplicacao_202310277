@@ -64,4 +64,88 @@ class DBHelper {
       );
     ''');
   }
+
+  // CRUD TASKS
+  Future<int> insertTask(Task task) async {
+    final db = await database;
+    return await db.insert('tasks', task.toMap());
+  }
+
+  Future<List<Task>> getTasks() async {
+    final db = await database;
+    final result = await db.query('tasks', orderBy: 'id DESC');
+    return result.map((e) => Task.fromMap(e)).toList();
+  }
+
+  Future<int> updateTask(Task task) async {
+    final db = await database;
+    return await db.update(
+      'tasks',
+      task.toMap(),
+      where: 'id = ?',
+      whereArgs: [task.id],
+    );
+  }
+
+  Future<int> deleteTask(int id) async {
+    final db = await database;
+    return await db.delete('tasks', where: 'id = ?', whereArgs: [id]);
+  }
+
+  Future<int> insertGrupo(Grupo grupo) async {
+    final db = await database;
+    return await db.insert('GRUPO_RESPONSAVEL', grupo.toMap());
+  }
+
+  Future<List<Grupo>> getGrupos() async {
+    final db = await database;
+    final result = await db.query('GRUPO_RESPONSAVEL', orderBy: 'id DESC');
+    return result.map((e) => Grupo.fromMap(e)).toList();
+  }
+
+  Future<int> updateGrupo(Grupo grupo) async {
+    final db = await database;
+    return await db.update(
+      'GRUPO_RESPONSAVEL',
+      grupo.toMap(),
+      where: 'id = ?',
+      whereArgs: [grupo.id],
+    );
+  }
+
+  Future<int> deleteGrupo(int id) async {
+    final db = await database;
+    return await db.delete(
+      'GRUPO_RESPONSAVEL',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
+
+  Future<int> insertPrioridade(Prioridade prioridade) async {
+    final db = await database;
+    return await db.insert('PRIORIDADE', prioridade.toMap());
+  }
+
+  Future<List<Prioridade>> getPrioridades() async {
+    final db = await database;
+    final result = await db.query('PRIORIDADE', orderBy: 'id DESC');
+    return result.map((e) => Prioridade.fromMap(e)).toList();
+  }
+
+  Future<int> updatePrioridade(Prioridade prioridade) async {
+    final db = await database;
+    return await db.update(
+      'PRIORIDADE',
+      prioridade.toMap(),
+      where: 'id = ?',
+      whereArgs: [prioridade.id],
+    );
+  }
+
+  Future<int> deletePrioridade(int id) async {
+    final db = await database;
+
+    return await db.delete('PRIORIDADE', where: 'id = ?', whereArgs: [id]);
+  }
 }
