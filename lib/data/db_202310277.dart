@@ -22,7 +22,7 @@ class DBHelper {
 
   Future<Database> _initDB() async {
     Directory docsDir = await getApplicationDocumentsDirectory();
-    String path = join(docsDir.path, 'tasks.db');
+    String path = join(docsDir.path, 'tasksadmin_202310277.db');
 
     return await openDatabase(
       path,
@@ -127,7 +127,7 @@ class DBHelper {
     return await db.insert('PRIORIDADE', prioridade.toMap());
   }
 
-  Future<List<Prioridade>> getPrioridades() async {
+  Future<List<Prioridade>> getPrioridade() async {
     final db = await database;
     final result = await db.query('PRIORIDADE', orderBy: 'id DESC');
     return result.map((e) => Prioridade.fromMap(e)).toList();
