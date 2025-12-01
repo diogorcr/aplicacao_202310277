@@ -1,16 +1,21 @@
-# aplicacao_202310277
+# Prova Prática – Flutter + Sqflite
 
-A new Flutter project.
+Desenvolver um aplicativo Flutter com uso obrigatório de sqflite, CRUD completo, validações e personalização individual por aluno.
 
-## Getting Started
+## Dados dos alunos
 
-This project is a starting point for a Flutter application.
+Diogo Rodrigues_202310277
+Vinicius Calefo Assarice_202310107
 
-A few resources to get you started if this is your first Flutter project:
+## Campo Personalizado
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Campo extra_grupoResponsavel
+Tema_modernBlack
+Cor Primaria_black87
+Cor Secundaria_blueAccent
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Dificuldade encontrada
+
+Adaptar o modelo da tarefa e a tabela do banco para incluir o campo extra sem quebrar o restante do CRUD (modelo, DAO, tela de formulário, listagem).
+Erros ao fazer update/ deletecom idincorreto ou mapa incompleto, o que gera abordagens silenciosas se não houver logs.
+Organizar o fluxo de commits em etapas lógicas (criação do projeto, criação do banco, CRUD, versão final) sem esquecer de fazer commit em cada fase.
